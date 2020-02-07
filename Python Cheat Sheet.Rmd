@@ -1,0 +1,91 @@
+---
+title: "Python Cheat Sheet"
+author: "Elisa Schneider"
+date: "7 Februar 2020"
+output:
+  html_document:
+    toc: true
+    theme: united
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
+#knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+This is a cheat sheet for most common operations using pandas and numpy
+
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+# Working with pandas df
+
+![](imgs\loc.PNG){width=800px}
+
+![](imgs\iloc.PNG){width=822px}
+
+#String cheat sheet
+
+Insert values into a string in order
+
+```{python}
+continents = "France is in {} and China is in {}".format("Europe", "Asia")
+```
+
+Insert values into a string by position
+
+```{python}
+square = " {0} times {0} equals {1}".format(3,9)
+```
+
+Insert values into strings by name
+
+```{python}
+Population = "{name}'s population is {pop} millions".format(name = "Brazil", pop=209)
+```
+
+Format specifications dor two decimal plances 
+
+```{python}
+Two decimal places = "I own {:.2f}% of the company".format(32.456232223)
+```
+
+Order format specifications when using precision and comma separator 
+
+```{python}
+balance_string = "Your balance is {:,.2f}".format(12345.6789)
+```
+
+# Find position of one specific value
+
+```{python}
+i, j = np.where(file.values == 'Summe')
+```
+
+Returns two lists with rows and columns where the value is found. The two lists have the same number of elements. Each element corresponds to row and col of the position. 
+
+# Pandas check for null values
+
+Checks if each value is *TRUE* or *FALSE*
+
+```{python}
+df.isnull()
+```
+
+Check if a whole column is null (axis=0) or whole row is null (axis=1)
+
+```{python}
+file_cut.isnull().all(axis=0) # checks if rows are null
+file_cut.isnull().all(axis=1) # Checks if columns are null
+```
+
+# Get rows and columns of a Pandas df
+
+```{python}
+df.shape
+```
+
+
