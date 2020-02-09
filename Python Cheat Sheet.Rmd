@@ -88,4 +88,24 @@ file_cut.isnull().all(axis=1) # Checks if columns are null
 df.shape
 ```
 
+# Read and write csv files
+
+[Read csv documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
+
+```{python}
+pd.read_csv('filename.csv', sep=',')
+```
+
+[Write csv documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html)
+
+```{python}
+df.to_csv(  'filename.csv', sep=',')
+```
+
+# Convert strings to integer
+
+```{r}
+laptops["ram"] = laptops["ram"].str.replace('GB','') # discard non numeric values
+laptops["ram"] = laptops["ram"].astype(int) # convert to integer
+```
 
